@@ -1,113 +1,130 @@
-import Image from "next/image";
+import { Elements, Layouts, Typography } from 'src/components'
+
+const menuItems = [
+	{ label: 'Home', href: '#' },
+	{ label: 'Over Mij', href: '#' },
+	{ label: 'Contact', href: '#' },
+]
+
+const skills = [
+	{ label: 'Laravel' },
+	{ label: 'NextJS' },
+	{ label: 'React' },
+	{ label: 'MySQL' },
+	{ label: 'Tailwind CSS' },
+	{ label: 'JavaScript' },
+	{ label: 'Typescript' },
+	{ label: 'GitHub' },
+]
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	return (
+		<div>
+			<div
+				className={'z-0 w-[1838px] h-[1838px] absolute -left-[950px] -top-[1200px] bg-gray-50 bg-opacity-10 rounded-full blur-[500px]'}/>
+			<div
+				className={'z-0 w-[2417px] h-[1653px] absolute -right-[1450px] top-[400px] bg-cyan-400 bg-opacity-10 rounded-full blur-[500px]'}/>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+			<Layouts.Container className={'relative z-10'}>
+				<nav className={'py-4'}>
+					<div
+						className={'flex justify-between items-center bg-white bg-opacity-5 px-8 py-4 rounded-2xl border border-gray-800 backdrop-blur-3xl'}>
+						<Typography variant={'headings-heading-6'} font={'Fira_Code'} className={'font-medium'}>
+							Thomas van Rijn
+						</Typography>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+						<ul className={'flex gap-8'}>
+							{
+								menuItems.map((item, index) => {
+									return (
+										<li key={index}>
+											<Typography
+												variant={'headings-heading-6'}
+												font={'Fira_Code'}
+												className={'font-medium'}
+											>
+												{item.label}
+											</Typography>
+										</li>
+									)
+								})
+							}
+						</ul>
+					</div>
+				</nav>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+				<header className={'h-[88vh] flex justify-between items-center'}>
+					<div className={'flex flex-col justify-center gap-8'}>
+						<Typography variant={'headings-heading-1'} className={'leading-tight'}>
+							Hallo, mijn naam is <br/>
+							<span
+								className={'bg-gradient-to-br from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent'}>
+							Thomas
+						</span>
+						</Typography>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+						<Typography variant={'headings-heading-2'} className={'text-3xl font-normal'}>
+							Een 21 jarige <span className={'font-semibold'}>full-stack</span> developer
+						</Typography>
+
+						<div className={'flex gap-4'}>
+							<div className={'w-12 h-12 border-2 border-white rounded-full'}></div>
+							<div className={'w-12 h-12 border-2 border-white rounded-full'}></div>
+						</div>
+					</div>
+
+					<div>
+						<img src={'/img/memoji.png'} alt={'memoji'}/>
+					</div>
+				</header>
+
+				<section className={'flex gap-8'}>
+					<img src={'img/portret.jpg'} alt={'portret'}
+						 className={'w-[400px] aspect-[3/4] object-cover rounded-3xl'}/>
+
+					<div className={'flex flex-col gap-8'}>
+						<div
+							className={'flex flex-col gap-4 bg-white bg-opacity-5 p-8 border border-gray-800 rounded-3xl backdrop-blur-3xl'}>
+							<Typography variant={'headings-heading-4'}>Over mij</Typography>
+
+							<Typography variant={'text-body'} font={'Fira_Code'}>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in placerat felis.
+								Curabitur elementum diam sed rutrum bibendum. In a purus non enim lobortis ultricies ut
+								efficitur lacus. Fusce feugiat rhoncus nunc sed auctor. Fusce eget massa vitae mi
+								gravida consequat sit amet vitae erat.
+							</Typography>
+						</div>
+
+						<div
+							className={'flex flex-col gap-4 bg-white bg-opacity-5 p-8 border border-gray-800 rounded-3xl backdrop-blur-3xl'}>
+							<Typography variant={'headings-heading-4'}>Skills</Typography>
+
+							<Typography variant={'text-body'} font={'Fira_Code'}>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in placerat felis.
+								Curabitur elementum diam sed rutrum bibendum. In a purus non enim lobortis ultricies ut
+								efficitur lacus.
+							</Typography>
+
+							<div className={'flex flex-wrap gap-4'}>
+								{
+									skills.map((skill, index) => {
+										return (
+											<div key={index}
+												 className={'flex gap-4 items-center px-4 py-2 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-md'}>
+												<Elements.Icons/>
+
+												<Typography variant={'text-body'} className={'text-zinc-200'}
+															font={'Fira_Code'}>{skill.label}</Typography>
+											</div>
+										)
+									})
+								}
+							</div>
+						</div>
+					</div>
+				</section>
+			</Layouts.Container>
+		</div>
+	)
 }
