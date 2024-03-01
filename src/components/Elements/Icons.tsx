@@ -5,7 +5,7 @@ type IconsProps = {
 	className?: string
 	/** Icons contents */
 	children?: ReactNode
-	name: 'JavaScript' | 'GitHub'
+	name?: 'JavaScript' | 'GitHub'
 }
 
 export function Icons({ className, name = 'JavaScript' }: IconsProps) {
