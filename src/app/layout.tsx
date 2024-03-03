@@ -18,7 +18,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-		<body className={twMerge(inter.className, 'bg-gray-950 overflow-x-hidden') }>{children}</body>
+		<head>
+			<title>Thomas van Rijn</title>
+			<meta name={'viewport'} content={'width=device-width, initial-scale=1.0'}/>
+		</head>
+		<body className={twMerge(inter.className, 'bg-gray-950 bg-cover bg-center') } style={{backgroundImage: 'url(img/bg.png)'}}>{children}</body>
 		</html>
 	)
 }

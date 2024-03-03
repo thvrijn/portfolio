@@ -1,7 +1,7 @@
-import * as Elements from './Elements'
+import * as Icons from './Icons'
 import * as Forms from './Forms'
 import * as Layouts from './Layouts'
 
-export { Elements, Forms, Layouts }
+export { Icons, Forms, Layouts }
 
 export * from './Typography'

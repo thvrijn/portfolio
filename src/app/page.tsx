@@ -1,4 +1,4 @@
-import { Elements, Forms, Layouts, Typography } from 'src/components'
+import { Icons, Forms, Layouts, Typography } from 'src/components'
 
 const menuItems = [
 	{ label: 'Home', href: '#' },
@@ -6,26 +6,20 @@ const menuItems = [
 	{ label: 'Contact', href: '#' },
 ]
 
-const skills = [
-	{ label: 'Laravel' },
-	{ label: 'NextJS' },
-	{ label: 'React' },
-	{ label: 'MySQL' },
-	{ label: 'Tailwind CSS' },
-	{ label: 'JavaScript' },
-	{ label: 'Typescript' },
-	{ label: 'GitHub' },
+const skills: Icons.CustomIconVariants[] = [
+	'Laravel',
+	'NextJS',
+	'React',
+	'MySQL',
+	'Tailwind CSS',
+	'JavaScript',
+	'Typescript',
+	'GitHub',
 ]
 
 export default function Home() {
 	return (
 		<div>
-			<div
-				className={'z-0 w-[1838px] h-[1838px] absolute -left-[950px] -top-[1200px] bg-gray-50 bg-opacity-10 rounded-full blur-[500px]'}/>
-			<div
-				className={'z-0 w-[2417px] h-[1653px] absolute -right-[1450px] top-[400px] bg-cyan-400 bg-opacity-10 rounded-full blur-[500px]'}/>
-
-
 			<Layouts.Container className={'relative z-10 pb-40'}>
 				<nav className={'py-4'}>
 					<div
@@ -34,7 +28,7 @@ export default function Home() {
 							Thomas van Rijn
 						</Typography>
 
-						<ul className={'flex gap-8'}>
+						<ul className={'hidden sm:flex gap-8'}>
 							{
 								menuItems.map((item, index) => {
 									return (
@@ -51,37 +45,45 @@ export default function Home() {
 								})
 							}
 						</ul>
+
+						<button>
+							<Icons.HeroIcons name={'Bars3BottomRightIcon'} className={'w-8'}/>
+						</button>
 					</div>
 				</nav>
 
-				<header className={'h-[88vh] flex justify-between items-center'}>
+				<header className={'h-[88vh] flex justify-center sm:justify-between items-center'}>
 					<div className={'flex flex-col justify-center gap-8'}>
 						<Typography variant={'headings-heading-1'} className={'leading-tight'}>
 							Hallo, mijn naam is <br/>
 							<span
-								className={'bg-gradient-to-br from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent'}>
-							Thomas
-						</span>
+								className={'bg-gradient-to-br from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent'}>Thomas</span>
 						</Typography>
 
-						<Typography variant={'headings-heading-2'} className={'text-3xl font-normal'}>
+						<Typography variant={'headings-heading-3'} className={'font-normal'}>
 							Een 21 jarige <span className={'font-semibold'}>full-stack</span> developer
 						</Typography>
 
 						<div className={'flex gap-4'}>
-							<div className={'w-12 h-12 border-2 border-white rounded-full'}></div>
-							<div className={'w-12 h-12 border-2 border-white rounded-full'}></div>
+							<div
+								className={'w-12 h-12 flex items-center justify-center border-2 border-white rounded-full'}>
+								<Icons.HeroIcons name={'EnvelopeIcon'}/>
+							</div>
+							<div
+								className={'w-12 h-12 flex items-center justify-center border-2 border-white rounded-full'}>
+								<Icons.Custom name={'GitHub'} className={'text-white'}/>
+							</div>
 						</div>
 					</div>
 
-					<div>
+					<div className={'hidden'}>
 						<img src={'/img/memoji.png'} alt={'memoji'}/>
 					</div>
 				</header>
 
-				<section className={'flex gap-8'}>
+				<section className={'flex flex-col gap-8'}>
 					<img src={'img/portret.jpg'} alt={'portret'}
-						 className={'w-[400px] aspect-[3/4] object-cover rounded-3xl'}/>
+						 className={'w-[400px] aspect-[4/3] sm:aspect-[3/4] object-cover rounded-3xl'}/>
 
 					<div className={'flex flex-col gap-8'}>
 						<div
@@ -112,16 +114,16 @@ export default function Home() {
 										return (
 											<div
 												key={index}
-												className={'flex gap-4 items-center px-4 py-2 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-md'}
+												className={'flex gap-2 sm:gap-4 items-center px-2 py-1 sm:px-4 sm:py-2 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-md'}
 											>
-												<Elements.Icons/>
+												<Icons.Custom name={skill} className={'text-white w-4 sm:w-6'}/>
 
 												<Typography
 													variant={'text-body'}
-													className={'text-zinc-200'}
+													className={'text-xs sm:text-base text-zinc-200'}
 													font={'Fira_Code'}
 												>
-													{skill.label}
+													{skill}
 												</Typography>
 											</div>
 										)
@@ -164,14 +166,20 @@ export default function Home() {
 				</section>
 			</Layouts.Container>
 
-			<footer className={'w-full flex flex-col gap-8 items-center bg-gray-950 border-t border-gray-800'}>
+			<footer className={'w-full flex flex-col gap-8 items-center bg-gray-950 border-t border-gray-800 py-8'}>
 				<div className={'flex gap-8'}>
-						<div className={'w-12 h-12 border-2 border-white rounded-full'}></div>
-						<div className={'w-12 h-12 border-2 border-white rounded-full'}></div>
-						<div className={'w-12 h-12 border-2 border-white rounded-full'}></div>
-						<div className={'w-12 h-12 flex items-center justify-center border-2 border-white rounded-full'}>
-							<Elements.Icons name={'GitHub'} className={'text-white'}/>
-						</div>
+					<div className={'w-12 h-12 flex items-center justify-center border-2 border-white rounded-full'}>
+						<Icons.HeroIcons name={'EnvelopeIcon'} className={'text-white'}/>
+					</div>
+					<div className={'w-12 h-12 flex items-center justify-center border-2 border-white rounded-full'}>
+						<Icons.Custom name={'LinkedIn'} className={'text-white'}/>
+					</div>
+					<div className={'w-12 h-12 flex items-center justify-center border-2 border-white rounded-full'}>
+						<Icons.Custom name={'Instagram'} className={'text-white'}/>
+					</div>
+					<div className={'w-12 h-12 flex items-center justify-center border-2 border-white rounded-full'}>
+						<Icons.Custom name={'GitHub'} className={'text-white'}/>
+					</div>
 				</div>
 
 				<Typography variant={'text-body'} className={'text-white'}>
