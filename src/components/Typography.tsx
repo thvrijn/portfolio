@@ -45,9 +45,9 @@ export type TypographyProps<E extends ElementType> = {
 
 const getTypographyVariant = (variant: TypographyVariant) =>
 	({
-		'headings-heading-1': 'text-white text-4xl sm:text-[64px] font-bold tracking-wide',
+		'headings-heading-1': 'text-white text-4xl lg:text-5xl xl:text-[64px] font-bold tracking-wide',
 		'headings-heading-2': 'text-white text-4xl font-bold tracking-wide',
-		'headings-heading-3': 'text-white text-2xl sm:text-3xl font-bold tracking-wide',
+		'headings-heading-3': 'text-white text-2xl xl:text-3xl font-bold tracking-wide',
 		'headings-heading-4': 'text-white text-2xl font-bold tracking-wide text-zinc-300',
 		'headings-heading-5': 'text-white text-xl font-bold tracking-wide',
 		'headings-heading-6': 'text-white text-lg font-bold tracking-wide',
