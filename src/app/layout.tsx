@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { twMerge } from 'tailwind-merge'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +23,11 @@ export default function RootLayout({
 			<title>Thomas van Rijn</title>
 			<meta name={'viewport'} content={'width=device-width, initial-scale=1.0'}/>
 		</head>
-		<body className={twMerge(inter.className, 'bg-gray-950 bg-cover bg-center') } style={{backgroundImage: 'url(img/bg.png)'}}>{children}</body>
+		<body className={twMerge(inter.className, 'bg-gray-950 bg-cover bg-center')}
+			  style={{ backgroundImage: 'url(img/bg.png)' }}>
+		<SpeedInsights/>
+		{children}
+		</body>
 		</html>
 	)
 }
