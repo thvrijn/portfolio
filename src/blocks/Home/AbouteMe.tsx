@@ -1,7 +1,40 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useRef } from 'react'
 import { Icons, Typography } from 'src/components'
+import { motion, useAnimation, useInView } from 'framer-motion'
 
 export function AbouteMe() {
+	const ref = useRef(null);
+	const isInview = useInView(ref, { once: true });
+	const controls = useAnimation();
+
+	useEffect(() => {
+		if (isInview) {
+			controls.start('visible');
+		}
+	}, [isInview]);
+
+	const container = {
+		hidden: { opacity: 1, scale: 0 },
+		visible: {
+			opacity: 1,
+			scale: 1,
+			transition: {
+				delayChildren: 1,
+				staggerChildren: 0.2,
+			},
+		},
+	}
+
+	const item = {
+		hidden: { y: 20, opacity: 0 },
+		visible: {
+			y: 0,
+			opacity: 1,
+		},
+	}
+
 	return (
 		<section id={'about_me'} className={'flex flex-col lg:flex-row gap-8 py-8'}>
 			<img src={'img/portret.jpg'} alt={'portret'}
@@ -30,13 +63,20 @@ export function AbouteMe() {
 						efficitur lacus.
 					</Typography>
 
-					<div className={'flex flex-wrap gap-4'}>
+					<motion.ul
+						ref={ref}
+						className={'flex flex-wrap gap-4'}
+						variants={container}
+						initial={'hidden'}
+						animate={controls}
+					>
 						{
 							skills.map((skill, index) => {
 								return (
-									<div
+									<motion.li
 										key={index}
 										className={'flex gap-2 xl:gap-4 items-center px-2 py-1 xl:px-4 xl:py-2 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-md'}
+										variants={item}
 									>
 										<Icons.Custom name={skill} className={'text-white w-4 xl:w-6'}/>
 
@@ -47,11 +87,11 @@ export function AbouteMe() {
 										>
 											{skill}
 										</Typography>
-									</div>
+									</motion.li>
 								)
 							})
 						}
-					</div>
+					</motion.ul>
 				</div>
 			</div>
 		</section>
